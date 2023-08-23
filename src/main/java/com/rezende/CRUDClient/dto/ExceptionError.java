@@ -1,4 +1,4 @@
-package com.rezende.CRUDClient.dto.ExceptionDto;
+package com.rezende.CRUDClient.dto;
 
 import java.time.Instant;
 

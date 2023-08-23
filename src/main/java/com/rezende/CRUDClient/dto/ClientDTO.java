@@ -1,15 +1,26 @@
 package com.rezende.CRUDClient.dto;
 
 import com.rezende.CRUDClient.entities.Client;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+    @NotBlank(message = "Campo requerido")
+    @NotEmpty
+    @Size(min = 3, max = 40, message = "Nome entre 3 e 40 caractere")
     private String name;
+
+    @NotBlank
+    @NotEmpty
+    @Size(max = 11)
     private String cpf;
+
+    @Positive(message = "Preço deve ser positivo")
     private Double income;
+    @PastOrPresent
     private LocalDate birthDate;
     private Integer children;
 
