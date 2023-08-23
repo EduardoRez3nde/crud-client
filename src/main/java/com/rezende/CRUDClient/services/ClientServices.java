@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 @Service
 public class ClientServices {
@@ -39,6 +40,10 @@ public class ClientServices {
         copyDto(dto, entity);
         entity = repository.save(entity);
         return new ClientDTO(entity);
+    }
+    @Transactional
+    public void delete(Long id){
+        repository.deleteById(id);
     }
 
     private void copyDto (ClientDTO dto, Client entity){
